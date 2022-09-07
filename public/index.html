@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Socket Client</title>
-    <link rel="stylesheet" href="./bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programa de Colas</title>
+
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
 </head>
-<body>
-    <h1 class="m-3">Socket Client</h1>
-    <p class="m-3">
-        Server Status:
-        <span id="idOffline" class="text-danger">Offline</span>
-        <span id="idOnline" class="text-success">Online</span>
-    </p>
+
+<body class="container">
+    <h1 class="mt-5">Programa de Colas</h1>
 
     <div class="row">
-        <div class="col">
-            <input type="text" id="txtMensaje" class="form-control">
+        <div class="col-6">
+
+            <a class="btn btn-primary" href="publico.html">Pantalla publica</a>
+            <a class="btn btn-secondary" href="nuevo-ticket.html">Crear Tickets</a>
+
         </div>
-        <div class="col">
-            <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+
+        <div class="col-6">
+            <form action="escritorio.html">
+
+                <input name="escritorio" 
+                       type="text" 
+                       class="form-control" 
+                       placeholder="Escritorio" 
+                       autofocus 
+                       required>
+
+                <br>
+                <button type="submit" class="btn btn-primary">
+                    Ingresar
+                </button>
+            </form>
         </div>
     </div>
 
-
-
-    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
-    <script src="./js/socket-client.js"></script>
 </body>
+
 </html>
