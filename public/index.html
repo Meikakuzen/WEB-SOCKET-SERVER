@@ -8,7 +8,23 @@
     <link rel="stylesheet" href="./bootstrap.min.css">
 </head>
 <body>
-    <h1 class="mt-2">Socket Client</h1>
+    <h1 class="m-3">Socket Client</h1>
+    <p class="m-3">
+        Server Status:
+        <span id="idOffline" class="text-danger">Offline</span>
+        <span id="idOnline" class="text-success">Online</span>
+    </p>
+
+    <div class="row">
+        <div class="col">
+            <input type="text" id="txtMensaje" class="form-control">
+        </div>
+        <div class="col">
+            <button class="btn btn-primary" id="btnEnviar">Enviar</button>
+        </div>
+    </div>
+
+
 
     <script src="http://localhost:8080/socket.io/socket.io.js"></script>
     <script src="./js/socket-client.js"></script>
