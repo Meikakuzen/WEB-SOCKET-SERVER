@@ -3,9 +3,20 @@ import path from 'path'
 import fs from 'fs'
 import url from 'url'
 
+
+
+
 const __filename = url.fileURLToPath(import.meta.url)
 
 const __dirname = path.dirname(__filename)
+
+
+class Ticket {
+    constructor(numero, escritorio){
+        this.numero= numero
+        this.escritorio = escritorio
+    }
+}
 
 
 class TicketControl{
@@ -49,6 +60,36 @@ class TicketControl{
 
     }
 
+    siguiente(){
+        this.ultimo += 1
+
+        const ticket = new Ticket(this.ultimo, null)
+        this.tickets.push(ticket)
+
+        this.guardarDB()
+        return 'Ticket '+ ticket.numero
+    }
+
+    atenderTicket(escritorio){
+
+        if(this.tickets.length === 0){
+            return null
+        }
+        const ticket = this.tickets.shift();
+
+        ticket.escritorio = escritorio
+
+        this.ultimos4.unshift(ticket)
+
+        if(this.ultimos4.length > 4){
+            this.ultimos4.splice(-1,1)
+        }
+
+        this.guardarDB()
+
+        return ticket
+
+    }
 }
 
 export default TicketControl
